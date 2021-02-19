@@ -22,7 +22,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 /****************** MongoDb Connection ***********************************/
-const dev_db_url = 'mongodb+srv://krishna:abc@testcluster0.l1cii.mongodb.net/test';
+const dev_db_url = 'mongodb+srv://krishna:abc@foodscheduler.ziik3.mongodb.net/FSDev';
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 
@@ -30,10 +30,12 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-/****************** Router Init ***********************************/
+/****************** Router Initialise ***********************************/
 
+//********************User Account Registration*************** */
 
-
+const userAccountRegistration = require('./api/router/user-account-registration.router');
+app.use('/api', userAccountRegistration)
 
 
 /****************** Bootsrap Api ***********************************/
