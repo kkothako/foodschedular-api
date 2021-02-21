@@ -34,8 +34,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 //********************User Account Registration*************** */
 
-const userAccountRegistration = require('./api/router/user-account-registration.router');
-app.use('/api', userAccountRegistration)
+const userAccountRouter = require('./api/router/user-account-registration.router');
+app.use('/api', userAccountRouter)
 
 
 /****************** Bootsrap Api ***********************************/

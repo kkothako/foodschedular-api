@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const accountRegistratonModel = require('../controller/user-account-registration.controller');
+const userAccountController = require('../controller/user-account-registration.controller');
 
 router
-    .post('/useraccounts', accountRegistratonModel.createAccount);
+    .post('/useraccounts', userAccountController.createAccount);
 
 module.exports = router;

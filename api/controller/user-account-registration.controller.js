@@ -1,10 +1,9 @@
-const { request } = require('express');
 const mongoose = require('mongoose');
-const accountSchema = require('../model/user-account-registration.mode');
+const userAccountModel = require('../model/user-account-registration.model');
 
 exports.createAccount = ((request, response) => {
 
-    const accountModel = new accountSchema(request.body);
+    const accountModel = new userAccountModel(request.body);
     accountModel.id = new mongoose.Types.ObjectId;
 
     accountModel.save((error, account) => {
