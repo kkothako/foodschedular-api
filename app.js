@@ -15,7 +15,8 @@ var corsOptions = {
         "http://sravaniglobal.com",
         "http://localhost:4200",
         "https://play.google.com",
-        "http://schemas.android.com"
+        "http://schemas.android.com",
+        "https://foodschedular.herokuapp.com"
     ],
     optionsSuccessStatus: 200,
 };
