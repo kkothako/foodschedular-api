@@ -39,6 +39,11 @@ const userAccountRouter = require('./api/router/user-account-registration.router
 app.use('/api', userAccountRouter)
 
 
+//********************Create Preferences*************** */
+const preferencesRouter = require('./api/router/preferences.router');
+app.use('/api', preferencesRouter);
+
+
 /****************** Bootsrap Api ***********************************/
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
