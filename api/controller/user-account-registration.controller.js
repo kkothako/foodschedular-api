@@ -17,25 +17,29 @@ exports.createAccount = ((request, response) => {
             return response.json({ status: false, error: error });
         }
         if (accountModel.email) {
-            const emailModel = new emailModelSchema();
-            emailModel.to = accountModel.email;
-            emailModel.bcc = 'foodschedule126@gmail.com',
-                emailModel.subject = "Welcome";
-            emailModel.body = ` Dear ${accountModel.firstName} ${accountModel.lastName} <br/>
-    Thanks for creating a new account. <br/>
-    Please use this activation key: <b>${accountModel.activationKey}</b> to activate your account.
-    <br/>
-    <br/>
-    <br/> 
-    Thanks & Regards,
-    <br/> 
-    FoodSchedular
-    `
-            request.body = emailModel;
-
-            emailController.sendEmail(request, response);
+            this.sendEmail(request, response, accountModel);
         }
 
         return response.json({ status: true, data: account });
     });
 });
+
+exports.sendEmail = ((request, response, accountModel) => {
+    const emailModel = new emailModelSchema();
+    emailModel.to = accountModel.email;
+    emailModel.bcc = 'foodschedule126@gmail.com';
+    emailModel.subject = "Welcome";
+    emailModel.body = ` Dear ${accountModel.firstName} ${accountModel.lastName} <br/>
+                        Thanks for creating a new account. <br/>
+                        Please use this activation key: <b>${accountModel.activationKey}</b> to activate your account.
+                        <br/>
+                        <br/>
+                        <br/> 
+                        Thanks & Regards,
+                        <br/> 
+                        FoodSchedular
+`
+    request.body = emailModel;
+
+    return emailController.sendEmail(request, response);
+})
