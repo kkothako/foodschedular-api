@@ -20,7 +20,9 @@ const accountModel = new Schema({
         zipCode: String,
         country: String
     },
-    isActive: { type: Boolean, default: true },
+    activationKey:String,
+    activationExpires:String,
+    isActive: { type: Boolean, default: false },
     createAt: { type: Date, default: Date.now }
 });
 accountModel.plugin(uniqueValidator);

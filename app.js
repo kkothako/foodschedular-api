@@ -43,6 +43,9 @@ app.use('/api', userAccountRouter)
 const preferencesRouter = require('./api/router/preferences.router');
 app.use('/api', preferencesRouter);
 
+//********************Email*************** */
+const emailRouter = require('./api/router/email.router');
+app.use('/api', emailRouter);
 
 /****************** Bootsrap Api ***********************************/
 const port = process.env.PORT || 3000;
