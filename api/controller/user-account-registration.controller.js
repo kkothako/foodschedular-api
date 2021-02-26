@@ -29,7 +29,7 @@ exports.sendEmail = ((request, response, accountModel) => {
     emailModel.to = accountModel.email;
     emailModel.bcc = 'foodschedule126@gmail.com';
     emailModel.subject = "Welcome";
-    emailModel.body = ` Dear ${accountModel.firstName} ${accountModel.lastName} <br/>
+    emailModel.body = ` Dear ${accountModel.firstName} ${accountModel.lastName}, <br/>
                         Thanks for creating a new account. <br/>
                         Please use this activation key: <b>${accountModel.activationKey}</b> to activate your account.
                         <br/>
