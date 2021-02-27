@@ -24,6 +24,19 @@ exports.createAccount = ((request, response) => {
     });
 });
 
+exports.validateActivationKey = ((request, response) => {
+    userAccountModel.findOneAndUpdate({ activationKey: request.params.activationKey },
+        { isActive: true }, (error, account) => {
+            if (error) {
+                return response.json({ status: false, error: error })
+            }
+            if (!account) {
+                return response.json({ status: false });
+            }
+            return response.json({ status: true });
+        })
+});
+
 exports.sendEmail = ((request, response, accountModel) => {
     const emailModel = new emailModelSchema();
     emailModel.to = accountModel.email;
