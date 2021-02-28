@@ -37,6 +37,19 @@ exports.validateActivationKey = ((request, response) => {
         })
 });
 
+exports.validateLogin = ((request, response) => {
+
+    const filter = { email: request.body.email, password: request.body.password, isActive: true };
+    userAccountModel.findOne(filter, { password: 0 },
+        (error, account) => {
+            if (error || !account) {
+                return response.json({ status: false, error: error });
+            }
+            return response.json({ status: false, data: account });
+        });
+
+});
+
 exports.sendEmail = ((request, response, accountModel) => {
     const emailModel = new emailModelSchema();
     emailModel.to = accountModel.email;

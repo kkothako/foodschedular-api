@@ -5,6 +5,7 @@ const userAccountController = require('../controller/user-account-registration.c
 
 router
     .post('/useraccounts', userAccountController.createAccount)
+    .post('/useraccounts/validateLogin', userAccountController.validateLogin)
     .get('/useraccounts/:activationKey', userAccountController.validateActivationKey);
 
 module.exports = router;

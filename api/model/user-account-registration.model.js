@@ -10,7 +10,7 @@ const accountModel = new Schema({
         type: String, required: true, unique: true
     
     },
-    passowrd: String,
+    password: String,
     mobile: String,
     role: String,
     address: {
