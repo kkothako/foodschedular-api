@@ -40,12 +40,13 @@ exports.validateActivationKey = ((request, response) => {
 exports.validateLogin = ((request, response) => {
 
     const filter = { email: request.body.email, password: request.body.password, isActive: true };
+
     userAccountModel.findOne(filter, { password: 0 },
         (error, account) => {
             if (error || !account) {
-                return response.json({ status: false, error: error });
+                return response.json({ status: false, error: error ? error: account });
             }
-            return response.json({ status: false, data: account });
+            return response.json({ status: true, data: account });
         });
 
 });
@@ -55,7 +56,7 @@ exports.sendEmail = ((request, response, accountModel) => {
     emailModel.to = accountModel.email;
     emailModel.bcc = 'foodschedule126@gmail.com';
     emailModel.subject = "Welcome";
-    emailModel.body = ` Dear ${accountModel.firstName} ${accountModel.lastName}, <br/>
+    emailModel.body = ` Dear ${accountModel.role} , <br/>
                         Thanks for creating a new account. <br/>
                         Please use this activation key: <b>${accountModel.activationKey}</b> to activate your account.
                         <br/>
