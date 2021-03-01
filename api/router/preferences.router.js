@@ -3,6 +3,6 @@ const router = express.Router();
 
 const preferencesController = require('../controller/preferences.controller');
 
-router.post('/preferences', preferencesController.createPrefereces);
+router.post('/createPreferences', preferencesController.createPrefereces);
 
 module.exports = router;

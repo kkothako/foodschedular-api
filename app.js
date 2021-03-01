@@ -43,6 +43,10 @@ app.use('/api', userAccountRouter)
 const preferencesRouter = require('./api/router/preferences.router');
 app.use('/api', preferencesRouter);
 
+//********************Create Profile*************** */
+const profileRouter = require('./api/router/profile.router');
+app.use('/api', profileRouter);
+
 //********************Email*************** */
 const emailRouter = require('./api/router/email.router');
 app.use('/api', emailRouter);
