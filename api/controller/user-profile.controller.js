@@ -16,7 +16,7 @@ exports.createUserProfile = ((request, response) => {
 exports.getProfileByUserId = ((request, response) => {
 
     const filter = { userId: ObjectId(request.params.userId) };
-    userProfileSchema.findOne(filter, (error, profile) => {
+    userProfileSchema.find(filter, (error, profile) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
