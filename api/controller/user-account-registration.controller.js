@@ -25,7 +25,7 @@ exports.createAccount = ((request, response) => {
 });
 
 exports.validateActivationKey = ((request, response) => {
-    userAccountModel.findOneAndUpdate({ activationKey: request.params.activationKey },
+    userAccountModel.findOneAndUpdate({ activationKey: request.body.activationKey, id: request.body.userId },
         { isActive: true }, (error, account) => {
             if (error) {
                 return response.json({ status: false, error: error })
