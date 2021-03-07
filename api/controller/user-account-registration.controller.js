@@ -43,8 +43,10 @@ exports.validateLogin = ((request, response) => {
 
     userAccountModel.findOne(filter, { password: 0 },
         (error, account) => {
+            console.log(error)
             if (error || !account) {
-                return response.json({ status: false, error: error ? error: account });
+                const errorDetails =`Opps! something went wrong. Please try again with valid credentials`
+                return response.json({ status: false, error: account ? error: errorDetails });
             }
             return response.json({ status: true, data: account });
         });
