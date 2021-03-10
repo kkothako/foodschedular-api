@@ -6,10 +6,10 @@ exports.createPrefereces = ((request, response) => {
     const locPreferecesModel = new preferencesModel(request.body);
     locPreferecesModel.id = new mongoose.Types.ObjectId;
 
-    locPreferecesModel.save((error, prefereces) => {
+    locPreferecesModel.save((error, result) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
-        return response.json({ status: true, data: prefereces });
+        return response.json({ status: true, data: result });
     })
 })

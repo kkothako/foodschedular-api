@@ -55,6 +55,26 @@ app.use('/api', emailRouter);
 const userProfileRouter = require('./api/router/user-profile.router');
 app.use('/api', userProfileRouter);
 
+//********************Restaurant Cuisine*************** */
+const restaurantCuisineRouter = require('./api/router/restaurant-cuisine.router');
+app.use('/api', restaurantCuisineRouter);
+
+//********************Restaurants*************** */
+const restaurantRouter = require('./api/router/restaurant.router');
+app.use('/api', restaurantRouter);
+
+//********************Restaurant Timings*************** */
+const restaurantTimingsRouter = require('./api/router/restaurant-timings.router');
+app.use('/api', restaurantTimingsRouter);
+
+//********************Restaurant Menu*************** */
+const restaurantMenuRouter = require('./api/router/restaurant-menu.router');
+app.use('/api', restaurantMenuRouter);
+
+//********************Restaurant Menu Protien*************** */
+const restaurantProtienRouter = require('./api/router/restaurant-menu-protien.router');
+app.use('/api', restaurantProtienRouter);
+
 
 /****************** Bootsrap Api ***********************************/
 const port = process.env.PORT || 3000;
