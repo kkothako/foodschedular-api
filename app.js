@@ -76,12 +76,12 @@ const restaurantProtienRouter = require('./api/router/restaurant-menu-protien.ro
 app.use('/api', restaurantProtienRouter);
 
 //********************Order Save*************** */
-const orderSaveRouter = require('./api/router/order-save.router');
-app.use('/api', orderSaveRouter);
+const orderDraftRouter = require('./api/router/order-draft.router');
+app.use('/api', orderDraftRouter);
 
 //********************Order Final Save*************** */
-const orderFinalSaveRouter = require('./api/router/order-final-save.router');
-app.use('/api', orderFinalSaveRouter);
+const ordersRouter = require('./api/router/orders.router');
+app.use('/api', ordersRouter);
 
 
 /****************** Bootsrap Api ***********************************/
