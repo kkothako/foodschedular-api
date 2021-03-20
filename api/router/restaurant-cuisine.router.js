@@ -4,6 +4,6 @@ const router = express.Router();
 const restaurantCuisineController = require('../controller/restaurant-cuisine.controller');
 
 router.post('/restaurantCuisine', restaurantCuisineController.createrestaurantCuisines)
-.get('/restaurantCuisine', restaurantCuisineController.getAllCuisines);
+.post('/restaurantCuisine/getallcuisines', restaurantCuisineController.getAllCuisines);
 
 module.exports = router;
