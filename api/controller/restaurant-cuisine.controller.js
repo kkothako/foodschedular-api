@@ -12,4 +12,14 @@ exports.createrestaurantCuisines = ((request, response) => {
         }
         return response.json({ status: true, data: result });
     })
-})
+});
+
+exports.getAllCuisines = ((request, response) => {
+
+    restaurantCuisineModel.find({}, (error, cusines) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: cusines });
+    });
+});

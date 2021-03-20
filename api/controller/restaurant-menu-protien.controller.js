@@ -11,5 +11,14 @@ exports.createrestaurantProtiens = ((request, response) => {
             return response.json({ status: false, error: error });
         }
         return response.json({ status: true, data: result });
-    })
-})
+    });
+});
+
+exports.getAllProtiens = ((request, response)=>{
+    restaurantProtienModel.find({}, (error, protiens)=>{
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: protiens });
+    });
+});
