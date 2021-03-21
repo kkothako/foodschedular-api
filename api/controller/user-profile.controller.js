@@ -15,7 +15,7 @@ exports.createUserProfile = ((request, response) => {
 
 exports.getProfileByUserId = ((request, response) => {
 
-    const filter = { userId: ObjectId(request.params.userId) };
+    const filter = { userId: new mongoose.Types.ObjectId(request.params.userId) };
     userProfileSchema.find(filter, (error, profile) => {
         if (error) {
             return response.json({ status: false, error: error });
