@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const restaurantCuisineModel = require('../model/restaurant-cuisine.model');
+const cuisineModel = require('../model/cuisine.model');
 
-exports.createrestaurantCuisines = ((request, response) => {
+exports.createCuisine = ((request, response) => {
 
-    const locrestaurantCuisineModel = new restaurantCuisineModel(request.body);
-    locrestaurantCuisineModel.cuisineID = new mongoose.Types.ObjectId;
+    const locCuisineModel = new cuisineModel(request.body);
+    locCuisineModel.cuisineID = new mongoose.Types.ObjectId;
 
-    locrestaurantCuisineModel.save((error, result) => {
+    locCuisineModel.save((error, result) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
@@ -16,7 +16,7 @@ exports.createrestaurantCuisines = ((request, response) => {
 
 exports.getAllCuisines = ((request, response) => {
 
-    restaurantCuisineModel.find({}, (error, cusines) => {
+    cuisineModel.find({}, (error, cusines) => {
         if (error) {
             return response.json({ status: false, error: error });
         }

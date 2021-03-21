@@ -5,7 +5,7 @@ const restaurantMenuModel = new Schema({
     MenuID:String,
     MenuName:String,
     RestaurantID:String,
-    ProtienID:String,
+    ProteinID:String,
     SpecialInstructions:String,
     Allergy:String,
     Ingredients:String,

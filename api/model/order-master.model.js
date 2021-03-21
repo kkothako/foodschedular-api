@@ -1,12 +1,12 @@
 const mongoose  = require('mongoose');
 const {Schema} = mongoose;
 
-const orderConfirmModel = new Schema({
+const orderMasterModel = new Schema({
     id:String,
     cuisineID:String,
     cuisineName:String,
-    protienID:String,
-    protienName: String,
+    proteinID:String,
+    proteinName: String,
     scheduledDate: Date,
     profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
     userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
@@ -19,4 +19,4 @@ const orderConfirmModel = new Schema({
 });
 
 
-module.exports = mongoose.model('Order_Confirm', orderConfirmModel);
+module.exports = mongoose.model('Order_Master', orderMasterModel);

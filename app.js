@@ -51,9 +51,9 @@ app.use('/api', emailRouter);
 const userProfileRouter = require('./api/router/user-profile.router');
 app.use('/api', userProfileRouter);
 
-//********************Restaurant Cuisine*************** */
-const restaurantCuisineRouter = require('./api/router/restaurant-cuisine.router');
-app.use('/api', restaurantCuisineRouter);
+//********************Cuisine*************** */
+const cuisineRouter = require('./api/router/cuisine.router');
+app.use('/api', cuisineRouter);
 
 //********************Restaurants*************** */
 const restaurantRouter = require('./api/router/restaurant.router');
@@ -67,17 +67,17 @@ app.use('/api', restaurantTimingsRouter);
 const restaurantMenuRouter = require('./api/router/restaurant-menu.router');
 app.use('/api', restaurantMenuRouter);
 
-//********************Restaurant Menu Protien*************** */
-const restaurantProtienRouter = require('./api/router/restaurant-menu-protien.router');
-app.use('/api', restaurantProtienRouter);
+//********************Protein*************** */
+const proteinRouter = require('./api/router/protein.router');
+app.use('/api', proteinRouter);
 
 //********************Order Draft*************** */
 const orderDraftRouter = require('./api/router/order-draft.router');
 app.use('/api', orderDraftRouter);
 
-//********************Order Confirm*************** */
-const orderConfirmRouter = require('./api/router/order-confirm.router');
-app.use('/api', orderConfirmRouter);
+//********************Order Master*************** */
+const orderMasterRouter = require('./api/router/order-master.router');
+app.use('/api', orderMasterRouter);
 
 
 /****************** Bootsrap Api ***********************************/

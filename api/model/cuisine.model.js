@@ -1,7 +1,7 @@
 const mongoose  = require('mongoose');
 const {Schema} = mongoose;
 
-const restaurantCuisineModel = new Schema({
+const cuisineModel = new Schema({
     cuisineID:String,
     cuisineName:String,
     createAt: { type: Date, default: Date.now },
@@ -11,4 +11,4 @@ const restaurantCuisineModel = new Schema({
 });
 
 
-module.exports = mongoose.model('Restaurant_Cuisines', restaurantCuisineModel);
+module.exports = mongoose.model('Cuisine', cuisineModel);

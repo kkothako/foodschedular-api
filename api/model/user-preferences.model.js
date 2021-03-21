@@ -7,7 +7,7 @@ const preferencesModel = new Schema({
         name: String,
         code: String
     }],
-    protiens: [{
+    proteins: [{
         name: String,
         code: String
     }],
