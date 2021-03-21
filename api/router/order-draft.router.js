@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const orderFinalSaveController = require('./../controller/orders-draft.controller');
+const orderDraftController = require('../controller/order-draft.controller');
 
-router.post('/orders_draft', orderFinalSaveController.createDraftOrder);
+router.post('/orderDraft', orderDraftController.createDraftOrder);
 
 module.exports = router;

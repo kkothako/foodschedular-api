@@ -18,4 +18,4 @@ const userProfileSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('user-profile', userProfileSchema);
+module.exports = mongoose.model('User_Account_Profile', userProfileSchema);

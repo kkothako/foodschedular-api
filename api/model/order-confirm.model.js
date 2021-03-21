@@ -1,15 +1,15 @@
 const mongoose  = require('mongoose');
 const {Schema} = mongoose;
 
-const orderFinalSaveModel = new Schema({
+const orderConfirmModel = new Schema({
     id:String,
     cuisineID:String,
     cuisineName:String,
     protienID:String,
     protienName: String,
     scheduledDate: Date,
-    profileId: String,
-    userId: String,
+    profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
+    userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
     isCancelled: String,
     cancelledDeadlineDate: Date,
     createAt: { type: Date, default: Date.now },
@@ -19,4 +19,4 @@ const orderFinalSaveModel = new Schema({
 });
 
 
-module.exports = mongoose.model('orders_draft', orderFinalSaveModel);
+module.exports = mongoose.model('Order_Confirm', orderConfirmModel);

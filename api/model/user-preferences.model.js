@@ -20,8 +20,8 @@ const preferencesModel = new Schema({
     createdBy: String,
     modifiedAt: { type: Date, default: Date.now },
     modifiedBy: String,
-    profileId: String,
-    userId: String
+    profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
+    userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
 })
 
-module.exports = mongoose.model('user_Account_Preferences', preferencesModel);
+module.exports = mongoose.model('User_Account_Preferences', preferencesModel);

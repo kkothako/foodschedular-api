@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const preferencesModel = require('../model/preferences.model');
+const preferencesModel = require('../model/user-preferences.model');
 
 exports.createPrefereces = ((request, response) => {
 

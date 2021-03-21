@@ -1,15 +1,15 @@
 const mongoose  = require('mongoose');
 const {Schema} = mongoose;
 
-const orderSaveModel = new Schema({
+const orderDraftModel = new Schema({
     id:String,
     cuisineID:String,
     cuisineName:String,
     protienID:String,
     protienName: String,
     scheduledDate: Date,
-    profileId: String,
-    userId: String,
+    profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
+    userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
     createAt: { type: Date, default: Date.now },
     createdBy: String,
     modifiedAt: { type: Date, default: Date.now },
@@ -17,4 +17,4 @@ const orderSaveModel = new Schema({
 });
 
 
-module.exports = mongoose.model('orders', orderSaveModel);
+module.exports = mongoose.model('Order_Draft', orderDraftModel);

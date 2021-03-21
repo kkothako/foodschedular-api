@@ -7,7 +7,8 @@ const restaurantProtienModel = new Schema({
     createAt: { type: Date, default: Date.now },
     createdBy: String,
     modifiedAt: { type: Date, default: Date.now },
-    modifiedBy: String
+    modifiedBy: String,
+    cuisineID: { type: mongoose.Types.ObjectId, ref: 'Restaurant_Cuisines' }
 });
 
 

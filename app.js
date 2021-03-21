@@ -40,12 +40,8 @@ app.use('/api', userAccountRouter)
 
 
 //********************Create Preferences*************** */
-const preferencesRouter = require('./api/router/preferences.router');
+const preferencesRouter = require('./api/router/user-preferences.router');
 app.use('/api', preferencesRouter);
-
-//********************Create Profile*************** */
-const profileRouter = require('./api/router/profile.router');
-app.use('/api', profileRouter);
 
 //********************Email*************** */
 const emailRouter = require('./api/router/email.router');
@@ -75,13 +71,13 @@ app.use('/api', restaurantMenuRouter);
 const restaurantProtienRouter = require('./api/router/restaurant-menu-protien.router');
 app.use('/api', restaurantProtienRouter);
 
-//********************Order Save*************** */
+//********************Order Draft*************** */
 const orderDraftRouter = require('./api/router/order-draft.router');
 app.use('/api', orderDraftRouter);
 
-//********************Order Final Save*************** */
-const ordersRouter = require('./api/router/orders.router');
-app.use('/api', ordersRouter);
+//********************Order Confirm*************** */
+const orderConfirmRouter = require('./api/router/order-confirm.router');
+app.use('/api', orderConfirmRouter);
 
 
 /****************** Bootsrap Api ***********************************/
