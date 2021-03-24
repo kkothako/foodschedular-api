@@ -7,7 +7,7 @@ const orderDraftModel = new Schema({
     cuisineName:String,
     proteinID:String,
     proteinName: String,
-    scheduledDate: Date,
+    scheduledDate: String,
     profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
     userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
     createAt: { type: Date, default: Date.now },
