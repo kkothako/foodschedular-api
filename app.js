@@ -79,6 +79,10 @@ app.use('/api', orderDraftRouter);
 const orderMasterRouter = require('./api/router/order-master.router');
 app.use('/api', orderMasterRouter);
 
+/********************Allergy*************** */
+const allergyRouter = require('./api/router/allergy.router');
+app.use('/api', allergyRouter);
+
 
 /****************** Bootsrap Api ***********************************/
 const port = process.env.PORT || 3000;
