@@ -4,7 +4,7 @@ const proteinModel = require('../model/protein.model');
 exports.createProteins = ((request, response) => {
 
     const locProteinModel = new proteinModel(request.body);
-    locProteinModel.ProteinID = new mongoose.Types.ObjectId;
+    locProteinModel.proteinID = new mongoose.Types.ObjectId;
 
     locProteinModel.save((error, result) => {
         if (error) {
