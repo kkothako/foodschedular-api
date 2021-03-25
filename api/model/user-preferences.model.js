@@ -11,7 +11,7 @@ const preferencesModel = new Schema({
         name: String,
         code: String
     }],
-    allergies: [{
+    allergys: [{
         name: String,
         code: String
     }],
