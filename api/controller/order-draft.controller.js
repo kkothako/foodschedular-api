@@ -36,8 +36,8 @@ exports.createDraftOrder = ((request, response) => {
 exports.getOrderByProfileID = ((request, response) => {
 
     const filter = {
-        userId: new mongoose.Types.ObjectId(request.params.userId),
-        profileId: new mongoose.Types.ObjectId(request.params.profileId)
+        userId: new mongoose.Types.ObjectId(request.body.userId),
+        profileId: new mongoose.Types.ObjectId(request.body.profileId)
     };
     orderDraftModel.find(filter, (error, orders) => {
         if (error) {
