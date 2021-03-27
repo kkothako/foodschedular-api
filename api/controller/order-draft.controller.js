@@ -17,11 +17,13 @@ exports.createDraftOrder = ((request, response) => {
                 if (error) {
                     return response.json({ status: false, error: error });
                 }
-                return response.json({ status: true, data: result });
+                return response.json({ status: true, data: { status: true, data: result } });
             })
         } else {
             return response.json({
                 status: true, data: {
+                    data: null,
+                    status: false,
                     message: 'The order been already schdeled for selected date:' + request.body.scheduledDate
                 }
             });
