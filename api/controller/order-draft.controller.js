@@ -36,13 +36,13 @@ exports.createDraftOrder = ((request, response) => {
 exports.getOrderByProfileID = ((request, response) => {
 
     const filter = {
-        userId: ObjectId(request.params.userId),
-        profileId: ObjectId(request.params.profileId)
+        userId: new mongoose.Types.ObjectId(request.params.userId),
+        profileId: new mongoose.Types.ObjectId(request.params.profileId)
     };
-    orderDraftModel.find(filter, (error, result) => {
+    orderDraftModel.find(filter, (error, orders) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
-        return response.json({ status: true, data: result });
+        return response.json({ status: true, data: orders });
     })
 });
