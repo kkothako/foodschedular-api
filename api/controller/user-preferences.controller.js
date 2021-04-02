@@ -13,3 +13,14 @@ exports.createPrefereces = ((request, response) => {
         return response.json({ status: true, data: result });
     })
 })
+
+exports.getPreferencesByUserId = ((request, response) => {
+
+    const filter = { userId: new mongoose.Types.ObjectId(request.params.userId) };
+    preferencesModel.find(filter, (error, preferences) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: preferences });
+    })
+});
