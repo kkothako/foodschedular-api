@@ -4,7 +4,7 @@ const restaurantModel = require('../model/restaurant.model');
 exports.createrestaurants = ((request, response) => {
 
     const locrestaurantModel = new restaurantModel(request.body);
-    locrestaurantModel.RestaurantID = new mongoose.Types.ObjectId;
+    locrestaurantModel.restaurantId = new mongoose.Types.ObjectId;
 
     locrestaurantModel.save((error, result) => {
         if (error) {
@@ -12,4 +12,16 @@ exports.createrestaurants = ((request, response) => {
         }
         return response.json({ status: true, data: result });
     })
-})
+});
+
+exports.getRestorentDetailsByCusineIdAndZipCode = ((request, response) => {
+
+    const restorentModel = restaurantMenuModel.find({ cuisineID: request.request.body.cuisineID }).sort({ name: 'customerRatings' });
+    restorentModel.exec((error, restorents) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: restorents[0] });
+
+    })
+});

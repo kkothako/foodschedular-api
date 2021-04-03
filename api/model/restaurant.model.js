@@ -2,9 +2,9 @@ const mongoose  = require('mongoose');
 const {Schema} = mongoose;
 
 const restaurantModel = new Schema({
-    RestaurantID:String,
-    RestaurantName:String,
-    CuisineID: String,
+    restaurantId:String,
+    restaurantName:String,
+    cuisineId: String,
     address: {
         addressLine1: String,
         city: String,
@@ -12,8 +12,8 @@ const restaurantModel = new Schema({
         zipCode: String,
         country: String
     },
-    DeliveryArea: String,
-    CustomerRatings: String,
+    deliveryArea: String,
+    customerRatings: Number,
     createAt: { type: Date, default: Date.now },
     createdBy: String,
     modifiedAt: { type: Date, default: Date.now },

@@ -3,6 +3,7 @@ const router = express.Router();
 
 const restaurantController = require('../controller/restaurant.controller');
 
-router.post('/restaurant', restaurantController.createrestaurants);
+router.post('/restaurant', restaurantController.createrestaurants)
+.post('/restaurant/getRestorentDetailsByCusineIdAndZipCode', restaurantController.getRestorentDetailsByCusineIdAndZipCode);
 
 module.exports = router;

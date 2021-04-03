@@ -12,4 +12,18 @@ exports.createrestaurantMenus = ((request, response) => {
         }
         return response.json({ status: true, data: result });
     })
-})
+});
+
+exports.getRestorentMenuByProteinIdAndRestorentId = ((request, response) => {
+
+    restaurantMenuModel.findOne({
+        RestaurantID: request.body.restaurantID,
+        ProteinID: request.body.proteinID
+    }, (error, menu) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: menu });
+    });
+});
+
