@@ -23,3 +23,13 @@ exports.getProfileByUserId = ((request, response) => {
         return response.json({ status: true, data: profile });
     })
 });
+
+exports.deleteProfileById = ((request, response) => {
+
+    userProfileSchema.findByIdAndDelete({ id: request.body.id }, (error, result) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: result });
+    })
+});

@@ -16,7 +16,7 @@ exports.createrestaurants = ((request, response) => {
 
 exports.getRestorentDetailsByCusineIdAndZipCode = ((request, response) => {
 
-    const restorentModel = restaurantMenuModel.find({ cuisineID: request.request.body.cuisineID }).sort({ name: 'customerRatings' });
+    const restorentModel = restaurantModel.find({ cuisineID: request.body.cuisineID }).sort({'customerRatings':1 });
     restorentModel.exec((error, restorents) => {
         if (error) {
             return response.json({ status: false, error: error });
