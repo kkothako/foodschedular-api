@@ -3,7 +3,9 @@ const router = express.Router();
 
 const orderDraftController = require('../controller/order-draft.controller');
 
-router.post('/orderDraft', orderDraftController.createDraftOrder);
-router.post('/orderDraft/getOrderByProfileID', orderDraftController.getOrderByProfileID);
+router.post('/orderDraft', orderDraftController.createDraftOrder)
+.post('/orderDraft/getOrderByProfileID', orderDraftController.getOrderByProfileID)
+.post('/orderDraft/deleteDraftOrderByProileId', orderDraftController.deleteDraftOrderByProileId);
+
 
 module.exports = router;
