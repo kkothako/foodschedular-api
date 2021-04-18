@@ -46,3 +46,13 @@ exports.getOrderByProfileID = ((request, response) => {
         return response.json({ status: true, data: orders });
     })
 });
+
+exports.deleteDraftOrderByProileId = ((request, response) => {
+    const filete = { id: new mongoose.Types.ObjectId(request.body.profileId) };
+    orderDraftModel.findOneAndDelete(filete, (error, order) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: order });
+    });
+});
