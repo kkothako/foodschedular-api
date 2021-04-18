@@ -25,8 +25,7 @@ exports.getProfileByUserId = ((request, response) => {
 });
 
 exports.deleteProfileById = ((request, response) => {
-
-    userProfileSchema.findByIdAndDelete({ id: request.body.id }, (error, result) => {
+    userProfileSchema.findOneAndDelete({ id: new mongoose.Types.ObjectId(request.body.id) }, (error, result) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
