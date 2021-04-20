@@ -5,7 +5,7 @@ const orderDraftController = require('../controller/order-draft.controller');
 
 router.post('/orderDraft', orderDraftController.createDraftOrder)
 .post('/orderDraft/getOrderByProfileID', orderDraftController.getOrderByProfileID)
-.post('/orderDraft/deleteDraftOrderByProileId', orderDraftController.deleteDraftOrderByProileId);
+.post('/orderDraft/deleteDraftOrderByOrderId', orderDraftController.deleteDraftOrderByOrderId);
 
 
 module.exports = router;

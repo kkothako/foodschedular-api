@@ -47,9 +47,9 @@ exports.getOrderByProfileID = ((request, response) => {
     })
 });
 
-exports.deleteDraftOrderByProileId = ((request, response) => {
-    const filete = { id: new mongoose.Types.ObjectId(request.body.profileId) };
-    orderDraftModel.findOneAndDelete(filete, (error, order) => {
+exports.deleteDraftOrderByOrderId = ((request, response) => {
+    const filter = { id: request.body.orderId };
+    orderDraftModel.findOneAndDelete(filter, (error, order) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
