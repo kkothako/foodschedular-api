@@ -1,15 +1,21 @@
 const mongoose = require('mongoose');
 const serial = require("generate-serial-key")
+var otpGenerator = require('otp-generator');
 
 const userAccountModel = require('../model/user-account-registration.model');
 const emailController = require('./../controller/email.controller');
 const emailModelSchema = require('./../model/email.model');
 
 exports.createAccount = ((request, response) => {
-    serial.generate()
+    //serial.generate()
+    const otp = otpGenerator.generate(6, {
+        upperCase: false,
+        specialChars: false, digits: true, alphabets: false
+    });
+
     const accountModel = new userAccountModel(request.body);
     accountModel.id = new mongoose.Types.ObjectId;
-    accountModel.activationKey = serial.generate(20, "_", 5);
+    accountModel.activationKey = otp;//serial.generate(20, "_", 5);
     // Set expiration time is 24 hours.
     accountModel.activationExpires = Date.now() + 24 * 3600 * 1000;
     accountModel.save((error, account) => {
@@ -45,8 +51,8 @@ exports.validateLogin = ((request, response) => {
         (error, account) => {
             console.log(error)
             if (error || !account) {
-                const errorDetails =`Opps! something went wrong. Please try again with valid credentials`
-                return response.json({ status: false, error: account ? error: errorDetails });
+                const errorDetails = `Opps! something went wrong. Please try again with valid credentials`
+                return response.json({ status: false, error: account ? error : errorDetails });
             }
             return response.json({ status: true, data: account });
         });
