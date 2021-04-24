@@ -72,9 +72,36 @@ exports.sendEmail = ((request, response, accountModel) => {
                         <br/> 
                         Thanks & Regards,
                         <br/> 
-                        FoodSchedular
+                        FoodSchedular Help Desk
 `
     request.body = emailModel;
 
     return emailController.sendEmail(request, response);
-})
+});
+
+exports.sendForgotPasswordByEmailId = ((request, response) => {
+    userAccountModel.findOne({ email: request.body.email }, (error, userAccount) => {
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+
+        const emailModel = new emailModelSchema();
+        emailModel.to = userAccount.email;
+        emailModel.bcc = 'foodschedule126@gmail.com';
+        emailModel.subject = "Forgot Password";
+        emailModel.body = ` Dear ${userAccount.role}, <br/>
+                            This is auto generated email and please do not reply back. <br/>
+                            Please use this Password: <b>${userAccount.password}</b> to login your account.
+                            <br/>
+                            <br/>
+                            <br/> 
+                            Thanks & Regards,
+                            <br/> 
+                            FoodSchedular Help Desk
+    `
+        request.body = emailModel;
+    
+        return emailController.sendEmail(request, response);
+    });
+
+});
