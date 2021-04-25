@@ -7,5 +7,5 @@ router
     .post('/useraccounts', userAccountController.createAccount)
     .post('/useraccounts/validateLogin', userAccountController.validateLogin)
     .post('/useraccounts/validateActivationKey', userAccountController.validateActivationKey)
-    .post('/useraccounts/sendForgotPasswordByEmailId', userAccountController.sendForgotPasswordByEmailId);
+    .post('/useraccounts/resendPassword', userAccountController.sendForgotPasswordByEmailId);
 module.exports = router;
