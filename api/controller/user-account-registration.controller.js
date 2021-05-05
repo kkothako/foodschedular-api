@@ -80,9 +80,10 @@ exports.sendEmail = ((request, response, accountModel) => {
 });
 
 exports.sendForgotPasswordByEmailId = ((request, response) => {
+    console.log(request.body);
     userAccountModel.findOne({ email: request.body.email }, (error, userAccount) => {
         if (error) {
-            return response.json({ status: false, error: error });
+            return response.json({ status: false, error: request.body });
         }
 
         const emailModel = new emailModelSchema();
