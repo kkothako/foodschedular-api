@@ -5,7 +5,8 @@ const orderDraftController = require('../controller/order-draft.controller');
 
 router.post('/orderDraft', orderDraftController.createDraftOrder)
 .post('/orderDraft/getOrderByProfileID', orderDraftController.getOrderByProfileID)
-.post('/orderDraft/deleteDraftOrderByOrderId', orderDraftController.deleteDraftOrderByOrderId);
+.post('/orderDraft/deleteDraftOrderByOrderId', orderDraftController.deleteDraftOrderByOrderId)
+.get('/orderDraft/getLangAndLatBy', orderDraftController.getRestorentDistanceBy);
 
 
 module.exports = router;

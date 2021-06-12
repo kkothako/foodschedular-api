@@ -16,7 +16,8 @@ var corsOptions = {
         "http://localhost:4200",
         "https://play.google.com",
         "http://schemas.android.com",
-        "https://foodschedular.herokuapp.com"
+        "https://foodschedular.herokuapp.com",
+        "https://www.freemaptools.com"
     ],
     optionsSuccessStatus: 200,
 };
