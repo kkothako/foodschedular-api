@@ -84,6 +84,14 @@ app.use('/api', orderMasterRouter);
 const allergyRouter = require('./api/router/allergy.router');
 app.use('/api', allergyRouter);
 
+/********************Track Order Status*************** */
+const trackOrderStatusRouter = require('./api/router/track-order-status.router');
+app.use('/api', trackOrderStatusRouter);
+
+/********************Track Order*************** */
+const trackOrderRouter = require('./api/router/track-order.router');
+app.use('/api', trackOrderRouter);
+
 
 /****************** Bootsrap Api ***********************************/
 const port = process.env.PORT || 3000;
