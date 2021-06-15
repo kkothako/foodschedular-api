@@ -16,7 +16,7 @@ exports.createrestaurants = ((request, response) => {
 
 exports.getRestorentDetailsByCusineIdAndZipCode = ((request, response) => {
 
-    const restorentModel = restaurantModel.find({ cuisineID: request.body.cuisineID }).sort({'customerRatings':1 });
+    const restorentModel = restaurantModel.find({ cuisineID: request.body.cuisineID }).sort({ 'customerRatings': 1 });
     restorentModel.exec((error, restorents) => {
         if (error) {
             return response.json({ status: false, error: error });
@@ -24,4 +24,16 @@ exports.getRestorentDetailsByCusineIdAndZipCode = ((request, response) => {
         return response.json({ status: true, data: restorents[0] });
 
     })
+});
+
+exports.getAllRestorentsByCusineIds = ((request, response) => {
+    
+    const cuisineIds = request.body.cuisineIds.join(',');
+    restaurantModel.find({ 'cuisineId': { $in: request.body.cuisineIds } },
+        (error, restorents) => {
+            if (error) {
+                return response.json({ status: false, error: error });
+            }
+            return response.json({ status: true, data: restorents });
+        });
 });
