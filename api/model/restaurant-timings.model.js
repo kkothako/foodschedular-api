@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 
 const restaurantTimingsModel = new Schema({
     ID:String,
-    RestaurantID:String,
+    RestaurantID:{type: Schema.Types.ObjectId, ref:'Restaurant_Menu'},
     DayoftheWeek: String,
     OpenTime: {type: Date},
     CloseTime: {type: Date},
