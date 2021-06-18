@@ -1,4 +1,5 @@
 const mongoose  = require('mongoose');
+const { schema } = require('./restaurant.model');
 const {Schema} = mongoose;
 
 const restaurantMenuModel = new Schema({
@@ -13,7 +14,8 @@ const restaurantMenuModel = new Schema({
     createAt: { type: Date, default: Date.now },
     createdBy: String,
     modifiedAt: { type: Date, default: Date.now },
-    modifiedBy: String
+    modifiedBy: String,
+    timings:[{type: Schema.Types.ObjectId, ref:'Restaurant_Timings'}]
 });
 
 
