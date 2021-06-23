@@ -13,3 +13,14 @@ exports.createrestaurantTimings = ((request, response) => {
         return response.json({ status: true, data: result });
     })
 })
+exports.getAllRestaurentMenusAndTimings = ((request, response) => {
+    restaurantTimingsModel.findOne({ restaurantId: request.body.restorentId })
+        .populate('restaurentMenu')
+        .exec((error, restorents) => {
+            if (error) {
+                return response.json({ status: false, error: error });
+            }
+            return response.json({ status: true, data: restorents });
+        });
+
+});

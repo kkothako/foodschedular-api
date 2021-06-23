@@ -27,16 +27,3 @@ exports.getRestorentMenuByProteinIdAndRestorentId = ((request, response) => {
     });
 });
 
-exports.getAllRestorentMenusByRestorentIdAndProtienId = ((request, response) => {
-console.log('***************',request.body.restorentId);
-console.log( 'p',request.body.proteinId);
-    restaurantMenuModel.findOne({ RestaurantID: request.body.restorentId, ProteinID: request.body.proteinId })
-        .populate('timings')
-        .exec((error, restorents) => {
-            if (error) {
-                return response.json({ status: false, error: error });
-            }
-            return response.json({ status: true, data: restorents });
-        });
-
-});
