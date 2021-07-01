@@ -5,6 +5,7 @@ const restaurantController = require('../controller/restaurant.controller');
 
 router.post('/restaurant', restaurantController.createrestaurants)
 .post('/restaurant/getRestorentDetailsByCusineIdAndZipCode', restaurantController.getRestorentDetailsByCusineIdAndZipCode)
-.post('/restaurant/getAllRestorentsByCuisineIds', restaurantController.getAllRestorentsByCusineIds);
+.post('/restaurant/getAllRestorentsByCuisineIds', restaurantController.getAllRestorentsByCusineIds)
+.post('/restaurant/getAllZipCodesByCustomerZipCode', restaurantController.getAllZipCodesByCustomerZipCode);
 
 module.exports = router;

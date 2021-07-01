@@ -17,7 +17,8 @@ var corsOptions = {
         "https://play.google.com",
         "http://schemas.android.com",
         "https://foodschedular.herokuapp.com",
-        "https://www.freemaptools.com"
+        "https://www.freemaptools.com",
+        "https://www.zipcodeapi.com"
     ],
     optionsSuccessStatus: 200,
 };

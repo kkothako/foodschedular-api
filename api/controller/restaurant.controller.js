@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const restaurantModel = require('../model/restaurant.model');
+const axios = require('axios');
 
 exports.createrestaurants = ((request, response) => {
 
@@ -27,7 +28,7 @@ exports.getRestorentDetailsByCusineIdAndZipCode = ((request, response) => {
 });
 
 exports.getAllRestorentsByCusineIds = ((request, response) => {
-    
+
     const cuisineIds = request.body.cuisineIds.join(',');
     restaurantModel.find({ 'cuisineId': { $in: request.body.cuisineIds } },
         (error, restorents) => {
@@ -36,4 +37,21 @@ exports.getAllRestorentsByCusineIds = ((request, response) => {
             }
             return response.json({ status: true, data: restorents });
         });
+});
+
+exports.getAllZipCodesByCustomerZipCode = (async (request, response) => {
+
+    const url = `https://www.zipcodeapi.com/rest/3t4Z999YThegEUEkKl29c5AlGoVbiuFuYeYdsUq1jhBjJIzB2bMaHPXKACKlgLLf/radius.json/${request.body.customerZipCode}/5/mile`;
+    console.log(url);
+    try {
+
+        const result = await axios.post(url)
+        return response.json({ status: false, data: result.data });
+        return data;
+
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+
 });
