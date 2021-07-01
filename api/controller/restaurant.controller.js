@@ -46,7 +46,7 @@ exports.getAllZipCodesByCustomerZipCode = (async (request, response) => {
     try {
 
         const result = await axios.post(url)
-        return response.json({ status: false, data: result.data });
+        return response.json({ status: false, data: result.data.zip_codes });
         return data;
 
     } catch (error) {
