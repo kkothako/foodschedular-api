@@ -38,6 +38,16 @@ exports.getAllRestorentsByCusineIds = ((request, response) => {
             return response.json({ status: true, data: restorents });
         });
 });
+exports.getAllRestorentsByZipCodes = ((request, response) => {
+
+    restaurantModel.find({ 'address.zipCode': { $in: request.body.zipCodes } },
+        (error, restorents) => {
+            if (error) {
+                return response.json({ status: false, error: error });
+            }
+            return response.json({ status: true, data: restorents });
+        });
+});
 
 exports.getAllZipCodesByCustomerZipCode = (async (request, response) => {
 
