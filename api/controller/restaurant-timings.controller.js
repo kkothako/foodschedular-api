@@ -14,7 +14,7 @@ exports.createrestaurantTimings = ((request, response) => {
     })
 })
 exports.getAllRestaurentMenusAndTimings = ((request, response) => {
-    restaurantTimingsModel.findOne({ 'restaurantId': { $in: request.body.restorentIds } })
+    restaurantTimingsModel.find({ 'restaurantId': { $in: request.body.restorentIds } })
         .populate('restaurentMenu')
         .exec((error, restorents) => {
             if (error) {
