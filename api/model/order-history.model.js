@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const orderHistoryModel = new Schema({
-    orderId: { type: mongoose.Types.ObjectId, ref: 'Order_Master' },
+    orderId: String,
     profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
     userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
     proteinId: { type: mongoose.Types.ObjectId, ref: 'Protein' },

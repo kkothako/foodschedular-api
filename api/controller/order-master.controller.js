@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const orderMasterModel = require('../model/order-master.model');
+const orderid = require('order-id')('mysecret');
 
 exports.createMasterOrder = ((request, response) => {
 
+    const id = orderid.generate();
     const locorderMasterModel = new orderMasterModel(request.body);
-    locorderMasterModel.orderId = new mongoose.Types.ObjectId;
+    locorderMasterModel.orderId = id;
 
     locorderMasterModel.save((error, result) => {
         if (error) {

@@ -27,6 +27,7 @@
     "mongoose-unique-validator": "^2.0.3",
     "nodemailer": "^6.4.18",
     "nodemon": "^2.0.7",
+    "order-id": "^2.1.1",
     "otp-generator": "^2.0.0",
     "xml2js": "^0.4.23"
   }
