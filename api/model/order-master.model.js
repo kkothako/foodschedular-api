@@ -1,22 +1,17 @@
-const mongoose  = require('mongoose');
-const {Schema} = mongoose;
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const orderMasterModel = new Schema({
-    id:String,
-    cuisineID:String,
-    cuisineName:String,
-    proteinID:String,
-    proteinName: String,
-    scheduledDate: Date,
+    orderId: { type: mongoose.Types.ObjectId },
     profileId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Profile' },
     userId: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
-    isCancelled: Boolean,
-    cancelledDeadlineDate: Date,
-    orderId: String,
-    createAt: { type: Date, default: Date.now },
-    createdBy: String,
-    modifiedAt: { type: Date, default: Date.now },
-    modifiedBy: String
+    totalAmount: Number,
+    paidAmmount: Number,
+    tax: Number,
+    orderStatus: Boolean,
+    upDatedBy: { type: mongoose.Types.ObjectId, ref: 'User_Account_Registration' },
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
 });
 
 

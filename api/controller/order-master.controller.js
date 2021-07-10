@@ -4,7 +4,7 @@ const orderMasterModel = require('../model/order-master.model');
 exports.createMasterOrder = ((request, response) => {
 
     const locorderMasterModel = new orderMasterModel(request.body);
-    locorderMasterModel.id = new mongoose.Types.ObjectId;
+    locorderMasterModel.orderId = new mongoose.Types.ObjectId;
 
     locorderMasterModel.save((error, result) => {
         if (error) {

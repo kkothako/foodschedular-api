@@ -93,6 +93,10 @@ app.use('/api', trackOrderStatusRouter);
 const trackOrderRouter = require('./api/router/track-order.router');
 app.use('/api', trackOrderRouter);
 
+/********************Order History*************** */
+const orderHistory = require('./api/router/order-history.router');
+app.use('/api', orderHistory);
+
 
 /****************** Bootsrap Api ***********************************/
 const port = process.env.PORT || 3000;
