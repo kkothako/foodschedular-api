@@ -4,12 +4,11 @@ const orderHistory = require('../model/order-history.model');
 
 
 exports.createOrderHistory = ((request, response) => {
-
-    const orderHistoryModel = new orderHistory(request.body);
-    orderHistoryModel.save((error, order) => {
+    const orderHistoryModel =  new orderHistory();
+    orderHistoryModel.collection.insertMany(request.body.orders,(error, order) => {
         if (error) {
             return response.json({ status: false, error: error });
         }
-        return response.json({ status: true, data: order });
+        console.log("Document inserted succussfully!");
     })
 });

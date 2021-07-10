@@ -2,16 +2,23 @@ const mongoose = require('mongoose');
 const orderMasterModel = require('../model/order-master.model');
 const orderid = require('order-id')('mysecret');
 
-exports.createMasterOrder = ((request, response) => {
+const orderHistoryController = require('../controller/order-history.controller');
+
+
+exports.createOrderMaster = ((request, response) => {
 
     const id = orderid.generate();
-    const locorderMasterModel = new orderMasterModel(request.body);
-    locorderMasterModel.orderId = id;
+    const orderderMasterModel = new orderMasterModel(request.body.orderMaster);
+    orderderMasterModel.orderId = id;
 
-    locorderMasterModel.save((error, result) => {
+    orderderMasterModel.save((error, result) => {
+       
         if (error) {
             return response.json({ status: false, error: error });
         }
+
+         orderHistoryController.createOrderHistory(request, response)
+
         return response.json({ status: true, data: result });
     })
 });
