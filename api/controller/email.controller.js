@@ -16,7 +16,8 @@ exports.sendEmail = ((request, response) => {
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
-        requireTLS: true,
+        // requireTLS: true,
+        ignoreTLS: false,
         auth: {
             user: 'foodschedule126@gmail.com',
             pass: 'Margolive2022!'
@@ -25,6 +26,7 @@ exports.sendEmail = ((request, response) => {
             rejectUnauthorized: false
         }
     });
+console.log(transporter);
 
     transporter.sendMail(mailOptions, (error, info) => {
         debugger;
