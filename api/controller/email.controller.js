@@ -16,7 +16,7 @@ exports.sendEmail = ((request, response) => {
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
-        requireTLS: false,
+        requireTLS: true,
         auth: {
             user: 'foodschedule126@gmail.com',
             pass: 'Margolive2022!'
