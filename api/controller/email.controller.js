@@ -19,7 +19,7 @@ exports.sendEmail = ((request, response) => {
         requireTLS: true,
         auth: {
             user: 'foodschedule126@gmail.com',
-            pass: 'Margolive2021!'
+            pass: 'Margolive2022!'
         },
         tls: {
             rejectUnauthorized: false
