@@ -12,7 +12,7 @@ exports.createOrderMaster = ((request, response) => {
     const id = orderid.generate();
     const orderderMasterModel = new orderMasterModel(request.body.request.orderMaster);
     orderderMasterModel.orderId = id;
-    request.body.request.orderMaster.orderId = id;
+    
     orderderMasterModel.save((error, result) => {
 
         if (error) {
@@ -20,6 +20,7 @@ exports.createOrderMaster = ((request, response) => {
         }
 
         orderHistoryController.createOrderHistory(request, response);
+        request.body.request.orderMaster.orderId = id;
         this.sendOrderConfirmationEmail(request, response);
 
         return response.json({ status: true, data: result });
@@ -27,7 +28,7 @@ exports.createOrderMaster = ((request, response) => {
 });
 
 exports.sendOrderConfirmationEmail = ((request, response) => {
-  console.log(request.body.request.orderMaster)
+  console.log('**************************',request.body.request.orderMaster)
     userAccountModel.findOne({ id: request.body.request.orderMaster.userId }, (error, userAccount) => {
         if (error) {
             return response.json({ status: false, error: error });
