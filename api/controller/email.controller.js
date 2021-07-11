@@ -14,13 +14,13 @@ exports.sendEmail = ((request, response) => {
 
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
+        port: 465,
+        secure: true,
         // requireTLS: true,
         ignoreTLS: false,
         auth: {
             user: 'foodschedule126@gmail.com',
-            pass: 'Margolive2022!'
+            pass: 'Margolive2023!'
         },
         tls: {
             rejectUnauthorized: false
