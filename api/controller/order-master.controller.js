@@ -7,8 +7,10 @@ const orderHistoryController = require('../controller/order-history.controller')
 
 exports.createOrderMaster = ((request, response) => {
 
+    console.log(request.body);
+
     const id = orderid.generate();
-    const orderderMasterModel = new orderMasterModel(request.body.orderMaster);
+    const orderderMasterModel = new orderMasterModel(request.body.request.orderMaster);
     orderderMasterModel.orderId = id;
 
     orderderMasterModel.save((error, result) => {
