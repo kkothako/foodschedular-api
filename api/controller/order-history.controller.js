@@ -16,19 +16,18 @@ exports.createOrderHistory = ((request, response) => {
 exports.getOrderHistoryBy = ((request, response) => {
 
     const filter = {
-        'restaurentId':'6068cea6dd5f9555bcc568a1'
+        'userId': request.body.userId,
+        'profileId': request.body.profileId,
+        'orderStatus': { '$ne': 'delivered' }
     };
-    console.log(filter)
-    orderHistory.find({})
-    .exec((error, orders)=>{
+    orderHistory.find(filter, (error, orders) => {
         console.log(orders)
 
         if (error) {
             return response.json({ status: false, error: error });
         }
         return response.json({ status: true, data: orders });
-    })
-    
+    });
 
 
 
