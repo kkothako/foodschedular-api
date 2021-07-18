@@ -69,7 +69,7 @@ exports.getLangAndLatBy = (async (request, response) => {
         var result1;
         var parser = require('xml2js');
         parser.Parser().parseString(result.data, (e, r) => { result1 = r });
-  
+
         return result1.markers.marker;
     } catch (error) {
         console.log(error);
@@ -78,28 +78,40 @@ exports.getLangAndLatBy = (async (request, response) => {
 
 });
 
+exports.deleteDraftOrders = ((request, response) => {
+    const filters = { id: { '$in': request.body.orderIds } };
+    orderDraftModel.deleteMany(filters, (error, order) => {
+
+        if (error) {
+            return response.json({ status: false, error: error });
+        }
+        return response.json({ status: true, data: 'Draft order deleted' });
+    });
+
+});
 exports.getRestorentDistanceBy = async (request, response) => {
 
-  try {
-    const data = await this.getLangAndLatBy(request, response);
- 
-    const distanceModel = {
-        lat1: data[0].$.lat,
-        lat2: data[1].$.lat,
-        lng1: data[0].$.lng,
-        lng2: data[1].$.lng
-    };
+    try {
+        const data = await this.getLangAndLatBy(request, response);
 
-    var R = 3958.8; // Radius of the Earth in miles
-    var rlat1 = +distanceModel.lat1 * (Math.PI / 180); // Convert degrees to radians
-    var rlat2 = +distanceModel.lat2 * (Math.PI / 180); // Convert degrees to radians
-    var difflat = rlat2 - rlat1; // Radian difference (latitudes)
-    var difflon = (+distanceModel.lng1 - +distanceModel.lng2) * (Math.PI / 180); // Radian difference (longitudes)
+        const distanceModel = {
+            lat1: data[0].$.lat,
+            lat2: data[1].$.lat,
+            lng1: data[0].$.lng,
+            lng2: data[1].$.lng
+        };
 
-    var distance = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2) + Math.cos(rlat1) * Math.cos(rlat2) * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
- 
-    return await response.json({status: true, data: distance.toFixed(3)});
-  } catch (error) {
-      
-  }
+        var R = 3958.8; // Radius of the Earth in miles
+        var rlat1 = +distanceModel.lat1 * (Math.PI / 180); // Convert degrees to radians
+        var rlat2 = +distanceModel.lat2 * (Math.PI / 180); // Convert degrees to radians
+        var difflat = rlat2 - rlat1; // Radian difference (latitudes)
+        var difflon = (+distanceModel.lng1 - +distanceModel.lng2) * (Math.PI / 180); // Radian difference (longitudes)
+
+        var distance = 2 * R * Math.asin(Math.sqrt(Math.sin(difflat / 2) * Math.sin(difflat / 2) + Math.cos(rlat1) * Math.cos(rlat2) * Math.sin(difflon / 2) * Math.sin(difflon / 2)));
+
+        return await response.json({ status: true, data: distance.toFixed(3) });
+    } catch (error) {
+
+    }
 }
+
