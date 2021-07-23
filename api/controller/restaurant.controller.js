@@ -53,7 +53,7 @@ exports.getAllZipCodesByCustomerZipCode = (async (request, response) => {
 
     //DuVBgSrIxkou6fZSIGW3qWaDS1B4eJRUuKgXKybsPAc1bHP0oDuojToPXlvZ4Rij
     //3t4Z999YThegEUEkKl29c5AlGoVbiuFuYeYdsUq1jhBjJIzB2bMaHPXKACKlgLLf
-    const url = `https://www.zipcodeapi.com/rest/DuVBgSrIxkou6fZSIGW3qWaDS1B4eJRUuKgXKybsPAc1bHP0oDuojToPXlvZ4Rij/radius.json/${request.body.customerZipCode}/5/mile`;
+    const url = `https://www.zipcodeapi.com/rest/3t4Z999YThegEUEkKl29c5AlGoVbiuFuYeYdsUq1jhBjJIzB2bMaHPXKACKlgLLf/radius.json/${request.body.customerZipCode}/5/mile`;
     console.log(url);
     try {
 
